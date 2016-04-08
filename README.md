@@ -11,7 +11,7 @@ sudo pip install kafka-python
 Run main web-server:
 
 ```
-python application.py
+python application.py &
 ```
 
 and then run the re-direct:
