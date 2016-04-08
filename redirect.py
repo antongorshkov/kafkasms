@@ -2,8 +2,7 @@ from kafka import KafkaConsumer
 from kafka import KafkaProducer
 from datetime import datetime, timedelta
 
-kafka_broker = '172.31.16.223'
-producer = KafkaProducer(bootstrap_servers=kafka_broker)
+producer = KafkaProducer()
 
 while True:
     consumer = KafkaConsumer('sms')
@@ -18,4 +17,3 @@ while True:
         except:
             print "Unexpected error"
             raise
-        print(msg.value)
