@@ -3,9 +3,10 @@ Simple client to receive messages from SMS(HTTP GET really) and persist onto a K
 
 ![Kafka Diagram](kafka-sms2.png)
 
-##Two parts here:
+##Few parts here:
 1. application.py - simple handler which puts the incoming request onto a Kafka topic
-2. redirect.py - listens to that topic, parses the message, creates a bunch of new Kafka messages onto another topic. Has threading.
+2. redirect.py - listens to that topic, parses the message, creates a bunch of new Kafka messages onto another topic. Has threading. Also responds to user via sms_response topic.
+3. sms_sender.py - listens to sms_response topic and actually sends those SMSes out.
 
 ##Instructions:
 
@@ -23,5 +24,11 @@ python application.py &
 and then run the re-direct:
 
 ```
-python redirect.py
+python redirect.py &
+```
+
+and finally, sms responder:
+
+```
+python sms_sender.py
 ```
