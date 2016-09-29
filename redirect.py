@@ -53,7 +53,6 @@ while True:
             tokens = msg.value.split()
             if is_number(tokens[0]):
                 send_json({'sender': tokens[1], 'val': tokens[0]},'vote')
-                #producer.send('vote',tokens[0].encode('utf-8'))
             else:
                 process_tokens(tokens)
         except:
